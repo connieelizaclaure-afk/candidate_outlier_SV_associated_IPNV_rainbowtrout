@@ -1,12 +1,14 @@
 # **Genome-wide structural variants associated with resistance to Infectious Pancreatic Necrosis virus in rainbow trout**
-This repository contains genomic analyses aimed at identifying and characterizing structural variants associated with IPNV resistance in rainbow trout (Oncorhynchus mykiss). Whole-genome sequencing and complementary analyses identified 54 candidate variants, including deletions in five genes involved in immune-related processes.
+
+This repository contains genomic analyses aimed at identifying and characterizing structural variants associated with IPNV resistance in rainbow trout (*Oncorhynchus mykiss*). Whole-genome sequencing and complementary analyses identified 54 candidate variants, including deletions in five genes involved in immune-related processes.
 
 ## Reading
-Preprint available here :
 
-Reference genome used in the study : [ICSASG_v2](https://salmobase.org/genomes/RainbowTrout/USDA_OmykA_1.1/overview)
+Preprint available here:
 
-This repository contains all codes for the methods described in the preprint descibed above.
+Reference genome used in the study: [ICSASG_v2](https://salmobase.org/genomes/RainbowTrout/USDA_OmykA_1.1/overview)
+
+This repository contains all codes for the methods described in the preprint described above.
 
 ## Contents
 
@@ -19,3 +21,4 @@ This repository contains all codes for the methods described in the preprint des
 ### 4. [Identification of candidate outlier SVs associated with resistance to IPNV](https://github.com/connieelizaclaure-afk/candidate_outlier_SV_associated_IPNV_rainbowtrout/tree/main/4_Identification_of_candidate_outlier_SVs_associated_with_resistance_to_IPNV)
 
 ### 5. [Gene annotation](https://github.com/connieelizaclaure-afk/candidate_outlier_SV_associated_IPNV_rainbowtrout/tree/main/5_Gene_annotation)
+
