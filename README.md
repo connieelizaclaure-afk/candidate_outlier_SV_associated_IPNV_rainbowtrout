@@ -12,10 +12,10 @@ This repository contains all codes for the methods described in the preprint des
 
 ### 1. [Whole-Genome Sequencing and Read Alignment](https://github.com/connieelizaclaure-afk/candidate_outlier_SV_associated_IPNV_rainbowtrout/tree/main/1_Whole_Genome_Sequencing_and_Read_Alignment)
 
-### 2. [Whole-Genome Sequencing and Read Alignment](https://github.com/connieelizaclaure-afk/candidate_outlier_SV_associated_IPNV_rainbowtrout/blob/main/2_Detection_genotyping_and_filtration_of_Structural_variants_(SVs)/)
+### 2. [Whole-Genome Sequencing and Read Alignment](https://github.com/connieelizaclaure-afk/candidate_outlier_SV_associated_IPNV_rainbowtrout/tree/main/2_Detection_genotyping_and_filtration_of_Structural_variants_(SVs))
 
-### 3. [Population genomic analysis](https://github.com/connieelizaclaure-afk/candidate_outlier_SV_associated_IPNV_rainbowtrout/blob/main/3_Population_genomic_analysis/)
+### 3. [Population genomic analysis]()
 
-### 4. [Identification of candidate outlier SVs associated with resistance to IPNV](https://github.com/connieelizaclaure-afk/candidate_outlier_SV_associated_IPNV_rainbowtrout/blob/main/4_Identification_of_candidate_outlier_SVs_associated_with_resistance_to_IPNV/)
+### 4. [Identification of candidate outlier SVs associated with resistance to IPNV]()
 
-### 5. [Gene annotation](https://github.com/connieelizaclaure-afk/candidate_outlier_SV_associated_IPNV_rainbowtrout/blob/main/5_Gene_annotation/)
+### 5. [Gene annotation]()
