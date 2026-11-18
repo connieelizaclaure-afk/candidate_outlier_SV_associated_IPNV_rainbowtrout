@@ -16,6 +16,6 @@ This repository contains all codes for the methods described in the preprint des
 
 ### 3. [Population genomic analysis](https://github.com/connieelizaclaure-afk/candidate_outlier_SV_associated_IPNV_rainbowtrout/tree/main/3_Population_genomic_analysis)
 
-### 4. [Identification of candidate outlier SVs associated with resistance to IPNV]()
+### 4. [Identification of candidate outlier SVs associated with resistance to IPNV](https://github.com/connieelizaclaure-afk/candidate_outlier_SV_associated_IPNV_rainbowtrout/tree/main/4_Identification_of_candidate_outlier_SVs_associated_with_resistance_to_IPNV)
 
 ### 5. [Gene annotation]()
