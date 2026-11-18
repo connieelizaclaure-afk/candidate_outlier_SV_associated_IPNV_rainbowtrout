@@ -14,7 +14,7 @@ This repository contains all codes for the methods described in the preprint des
 
 ### 1. [Whole-Genome Sequencing and Read Alignment](https://github.com/connieelizaclaure-afk/candidate_outlier_SV_associated_IPNV_rainbowtrout/tree/main/1_Whole_Genome_Sequencing_and_Read_Alignment)
 
-### 2. [Whole-Genome Sequencing and Read Alignment](https://github.com/connieelizaclaure-afk/candidate_outlier_SV_associated_IPNV_rainbowtrout/tree/main/2_Detection_genotyping_and_filtration_of_Structural_variants_(SVs))
+### 2. [Detection, genotyping and filtration of Structural variants (SVs)](https://github.com/connieelizaclaure-afk/candidate_outlier_SV_associated_IPNV_rainbowtrout/tree/main/2_Detection_genotyping_and_filtration_of_Structural_variants_(SVs))
 
 ### 3. [Population genomic analysis](https://github.com/connieelizaclaure-afk/candidate_outlier_SV_associated_IPNV_rainbowtrout/tree/main/3_Population_genomic_analysis)
 
