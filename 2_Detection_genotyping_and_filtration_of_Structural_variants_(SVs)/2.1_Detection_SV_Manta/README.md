@@ -78,7 +78,7 @@ Manta reports inversions as breakends (BND) by default. Use `convertInversion.py
 ```bash
 python ./softwares/manta2/libexec/convertInversion.py /usr/bin/samtools ./reference/OmykA_1.1_manta.fna.gz ./manta_merged/candidateSV.vcf > ./jasminesv/candidateSV_INV.vcf
 python ./softwares/manta2/libexec/convertInversion.py /usr/bin/samtools ./reference/OmykA_1.1_manta.fna.gz ./manta_merged/candidateSmallIndels.vcf > ./jasminesv/candidateSmallIndels_INV.vcf
-python ./softwares/manta2/libexec/convertInversion.py /usr/bin/samtools ./reference/OmykA_1.1_manta.fna.gz ./manta_merged/diploidSV.vcf > ./jasminesv/diploid_merged_28samples_PASS.vcf
+python ./softwares/manta2/libexec/convertInversion.py /usr/bin/samtools ./reference/OmykA_1.1_manta.fna.gz ./manta_merged/diploidSV.vcf > ./jasminesv/merged_28samples.vcf
 ```
 
 ## 5. Filtering Process
