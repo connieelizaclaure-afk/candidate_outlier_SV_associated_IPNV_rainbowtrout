@@ -1,115 +1,133 @@
-# 2.1 Detection and Genotyping of Structural Variants (SVs) with Manta
+# Structural Variant Detection using Manta
 
-This directory contains the pipeline for the detection, genotyping, and filtration of Structural Variants (SVs) in *Oncorhynchus mykiss* using the Manta software and customized bioinformatics workflows.
-
-## Workflow Overview
-
-The process follows a structured sequence from software installation and environment setup to multi-step variant filtration to ensure high-confidence results.
+Identification of Structural Variants (SV) in Rainbow Trout (*Oncorhynchus mykiss*) for the IPNv challenge test, Effigen S.A.
 
 ---
 
-### 1. Software Installation and Environment Setup
-
-Manta and its dependencies are managed via a dedicated Conda environment to ensure reproducibility and version control.
-
-```bash
-# Create and activate the Manta environment
-conda create -n manta_env -c bioconda manta
-conda activate manta_env
-```
-
----
-
-### 2. Manta Workflow Configuration
-
-Manta requires a configuration step where it analyzes the alignment files (BAM) to generate the execution scripts.
+## 1. Environment Setup
+Manta requires a Python 2.7 environment for execution.
 
 ```bash
-# Configuration for germline SV calling
-configManta.py \
-    --bam sample1.bam \
-    --bam sample2.bam \
-    --reference reference_genome.fa \
-    --runDir ./manta_workdir
+# Create the environment named 'manta'
+conda create --name manta python=2.7
+
+# Activate the environment
+conda activate manta
+
+# To deactivate the environment when finished
+# conda deactivate
 ```
 
----
-
-### 3. Execution of the Manta Pipeline
-
-Once configured, the analysis is executed using the generated Python script.
+## 2. Installation
+Navigate to your software directory and download the Manta release.
 
 ```bash
-# Execution using 8 parallel cores
-python ./manta_workdir/runWorkflow.py -m local -j 8
+cd /mnt/disco2/pcaceres/eliza_trout/softwares
+
+wget https://github.com/Illumina/manta/releases/download/v${MANTA_VERSION}/manta-${MANTA_VERSION}.release_src.tar.bz2
+tar -xjf manta-${MANTA_VERSION}.release_src.tar.bz2
+mkdir build && cd build
 ```
 
----
-
-### 4. Conversion of Inversions
-
-By default, Manta represents inversions as breakends (BND). To simplify downstream analysis, these are converted to a standard INV format.
+## 3. Workflow Execution
+Configure and run the Manta analysis for the 28 sorted BAM files.
 
 ```bash
-# Convert breakends to inversions
-python convertInversion.py \
-    --samtools /usr/bin/samtools \
-    --reference reference_genome.fa \
-    --vcf ./manta_workdir/results/variants/diploidSV.vcf.gz > diploidSV_converted.vcf
+mkdir manta
+
+python ./softwares/manta2/bin/configManta.py \
+--bam ./bam/M0018.sorted.bam \
+--bam ./bam/M0675.sorted.bam \
+--bam ./bam/M0679.sorted.bam \
+--bam ./bam/M0696.sorted.bam \
+--bam ./bam/M0943.sorted.bam \
+--bam ./bam/M0993.sorted.bam \
+--bam ./bam/M1010.sorted.bam \
+--bam ./bam/M1011.sorted.bam \
+--bam ./bam/M1013.sorted.bam \
+--bam ./bam/M1015.sorted.bam \
+--bam ./bam/M1017.sorted.bam \
+--bam ./bam/M1021.sorted.bam \
+--bam ./bam/M1043.sorted.bam \
+--bam ./bam/M1048.sorted.bam \
+--bam ./bam/S0080.sorted.bam \
+--bam ./bam/S0093.sorted.bam \
+--bam ./bam/S0098.sorted.bam \
+--bam ./bam/S0107.sorted.bam \
+--bam ./bam/S0116.sorted.bam \
+--bam ./bam/S0130.sorted.bam \
+--bam ./bam/S0159.sorted.bam \
+--bam ./bam/S0168.sorted.bam \
+--bam ./bam/S0169.sorted.bam \
+--bam ./bam/S0185.sorted.bam \
+--bam ./bam/S0343.sorted.bam \
+--bam ./bam/S0350.sorted.bam \
+--bam ./bam/S0368.sorted.bam \
+--bam ./bam/S0373.sorted.bam \
+--referenceFasta ./reference/OmykA_1.1_manta.fna.gz \
+--runDir ./manta/manta_trucha
+
+# Execute the workflow
+cd manta_trucha
+python runWorkflow.py
 ```
 
----
+## 4. Inversion Conversion (BND to INV)
+Manta reports inversions as breakends (BND) by default. Use `convertInversion.py` to reformat them into simple inverted sequence junctions.
 
-### 5. Seven-Step SV Filtration Pipeline
-
-To ensure the quality of the candidates, a rigorous 7-step filtration process is implemented using `bcftools` and custom filtering scripts.
-
-* **Basic Quality and PASS Filter**
-Keep only variants that passed all internal Manta filters and have a high quality score.
 ```bash
-bcftools filter -i 'FILTER=="PASS" && QUAL > 20' diploidSV_converted.vcf -o sv_step1.vcf
+python ./softwares/manta2/libexec/convertInversion.py /usr/bin/samtools ./reference/OmykA_1.1_manta.fna.gz ./manta_merged/candidateSV.vcf > ./jasminesv/candidateSV_INV.vcf
+python ./softwares/manta2/libexec/convertInversion.py /usr/bin/samtools ./reference/OmykA_1.1_manta.fna.gz ./manta_merged/candidateSmallIndels.vcf > ./jasminesv/candidateSmallIndels_INV.vcf
+python ./softwares/manta2/libexec/convertInversion.py /usr/bin/samtools ./reference/OmykA_1.1_manta.fna.gz ./manta_merged/diploidSV.vcf > ./jasminesv/diploid_merged_28samples_PASS.vcf
 ```
 
-* **Size Selection**
-Filter SVs based on biologically relevant size ranges (e.g., > 50bp).
+## 5. Filtering Process
+The following criteria are applied to the VCF files:
+1. Retain only variants with a `PASS` filter status.
+2. Keep only specific SV types: DEL, INS, DUP, and INV (excluding BND).
+3. Filter by precision, chromosome name (NC), and size (SVLEN).
+
+### 5.1. Filter by PASS
 ```bash
-bcftools filter -i 'SVLEN > 50 || SVLEN < -50' sv_step1.vcf -o sv_step2.vcf
+chmod +x filter_pass_sv.sh
+./filter_pass_sv.sh merged_28samples.vcf.gz
 ```
 
-* **Missing Data Filtration**
-Exclude variants with more than 10% missing genotypes across the population.
+### 5.2. Filter by SVTYPE
 ```bash
-bcftools view -e 'F_MISSING > 0.1' sv_step2.vcf -o sv_step3.vcf
+chmod +x filter_svtype.sh
+./filter_svtype.sh diploid_merged_28samples_PASS.vcf.gz
 ```
 
-* **Read Support Filter**
-Ensure variants are supported by a minimum number of spanning reads and split-reads.
+### 5.3. Filter by IMPRECISE
 ```bash
-# Custom filter for read depth and support
-bcftools filter -i 'INFO/SR > 5 || INFO/PR > 5' sv_step3.vcf -o sv_step4.vcf
+chmod +x filter_imprecise.sh
+./filter_imprecise.sh
 ```
 
-* **Minor Allele Frequency (MAF)**
-Filter by MAF to remove rare variants or potential sequencing artifacts.
+### 5.4. Filter by Contig (NC_)
+Extracts chromosomes (NC) and excludes scaffolds (NW).
 ```bash
-bcftools view -i 'MAF > 0.05' sv_step4.vcf -o sv_step5.vcf
+chmod +x filter_NC.sh
+./filter_NC.sh diploid_merged_28samples_PASS_precise.vcf.gz
 ```
 
-* **Hardy-Weinberg Equilibrium (HWE)**
-Remove variants that deviate significantly from HWE expectations.
+### 5.5. Filter by Size (SVLEN)
 ```bash
-bcftools filter -e 'HWE < 0.001' sv_step5.vcf -o sv_step6.vcf
+chmod +x filter_size.sh
+./filter_size.sh diploid_merged_28samples_PASS_precise_NC.vcf.gz
 ```
 
-* **Final Clean-up and Normalization**
-Standardize the VCF format for final analysis.
+### 5.6. Biallelic Data Filtering
 ```bash
-bcftools norm -m -any sv_step6.vcf -f reference_genome.fa -o final_sv_manta.vcf
+bcftools view -m2 -M2 diploid_merged_28samples_PASS_precise_NC_SIZE.vcf.gz -O z -o diploid_merged_28samples_PASS_precise_NC_SIZE_BI.vcf.gz
+bcftools index diploid_merged_28samples_PASS_precise_NC_SIZE_BI.vcf.gz
 ```
 
----
+## 6. Exploratory Data Analysis
+```bash
+chmod +x count_sv_detail.sh
+./count_sv_detail.sh diploid_merged_28samples_PASS_precise_NC_SIZE_BI.vcf.gz
+```
 
-### Technical Notes
-- **Manta Version:** Ensure you are using version 1.6.0 or higher.
-- **Reference Genome:** Use the same indexed FASTA file employed in the alignment phase.
-- **Resources:** Multi-sample SV calling is memory-intensive; ensure at least 4GB of RAM per core is available.
+**Final Output File:** `diploid_merged_28samples_PASS_precise_NC_SIZE_BI.vcf.gz`
