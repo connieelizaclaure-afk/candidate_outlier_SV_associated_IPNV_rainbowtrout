@@ -1,4 +1,4 @@
-# SV Identification using Lumpy
+# Structural Variant Detection using Lumpy
 
 This directory contains the pipeline for identifying structural variants (SVs) in *Oncorhynchus mykiss* using Lumpy. The workflow includes tool installation, generation of empirical statistics for library insert sizes, extraction of discordant and split-read alignments, SV calling, and a multi-step filtration process.
 
