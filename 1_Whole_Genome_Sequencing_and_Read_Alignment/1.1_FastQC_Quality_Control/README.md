@@ -1,4 +1,4 @@
-# 1.1 FastQC Quality Control
+# FastQC Quality Control
 
 The following code allows verifying the quality of the sequencing data. Note that while Novogene provides pre-reviewed files, this step ensures data integrity for the current analysis.
 
