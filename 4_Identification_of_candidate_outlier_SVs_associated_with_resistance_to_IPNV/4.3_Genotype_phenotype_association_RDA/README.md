@@ -1,6 +1,6 @@
 # Genotype-Phenotype Association (RDA)
 
-This directory contains the scripts and documentation for performing Redundancy Analysis (RDA) to investigate the association between structural variant (SV) genotypes and phenotype/environment data in *Oncorhynchus mykiss* samples from the IPNv challenge trial (Effigen S.A.).
+This directory contains the scripts and documentation for performing Redundancy Analysis (RDA) to investigate the association between structural variant (SV) genotypes and phenotype/environment data in *Oncorhynchus mykiss* samples.
 
 ### 1. Execution of Redundancy Analysis (RDA)
 
