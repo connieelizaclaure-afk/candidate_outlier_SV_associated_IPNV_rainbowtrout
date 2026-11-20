@@ -2,8 +2,6 @@
 
 This directory contains the workflow for annotating the functional effects of identified structural variants (SVs) using **snpEff**. 
 
-**Authors:** Connie Eliza Claure Guisbert, Pablo Caceres
-
 ## 1. Installation
 
 To install the latest version of snpEff, download and unzip the core package:
