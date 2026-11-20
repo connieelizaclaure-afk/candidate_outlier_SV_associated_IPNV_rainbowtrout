@@ -1,6 +1,6 @@
 # Reference Genome Alignment
 
-This directory contains the pipeline for aligning whole-genome sequencing reads to the rainbow trout (*Oncorhynchus mykiss*) reference genome (USDA_OmykA_1.1). The analysis utilizes data from the IPNV challenge test conducted by Effigen S.A.
+This directory contains the pipeline for aligning whole-genome sequencing reads to the rainbow trout (*Oncorhynchus mykiss*) reference genome (USDA_OmykA_1.1).
 
 ## Steps for Reference Genome Alignment
 
