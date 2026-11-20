@@ -1,7 +1,5 @@
 # Identification of Candidate Outlier SVs Associated with Resistance to IPNV
 
-This directory contains the analytical workflows for identifying structural variants (SVs) WITH association with resistance to the Infectious Pancreatic Necrosis Virus (IPNV) in *Oncorhynchus mykiss*.
-
 The analysis is divided into two main approaches: population genetic differentiation (outlier detection) and genotype-phenotype association testing.
 
 ## Directory Structure
