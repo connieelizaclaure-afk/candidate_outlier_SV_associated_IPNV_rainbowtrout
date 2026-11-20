@@ -1,4 +1,4 @@
-# 2.4 Detection SV GATK
+# Structural Variant Detection using GATK
 
 This directory contains the workflow for identifying structural variants (specifically INDELs) in *Oncorhynchus mykiss* using the Genome Analysis Toolkit (GATK) v4.3.0.0. The pipeline covers variant calling, genotyping, and a rigorous multi-step filtration process.
 
