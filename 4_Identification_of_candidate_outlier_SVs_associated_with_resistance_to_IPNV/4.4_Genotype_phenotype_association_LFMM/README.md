@@ -1,6 +1,6 @@
 # Genotype-Phenotype/Environment Association: LFMM
 
-This directory contains the scripts required to perform association analysis using Latent Factor Mixed Models (LFMM). This approach is used to identify structural variants associated with environmental variables or specific phenotypes (such as IPNV resistance) while controlling for unobserved population structure.
+This directory contains the scripts required to perform association analysis using Latent Factor Mixed Models (LFMM). 
 
 ## 1. Format Conversion (VCF to LFMM)
 
