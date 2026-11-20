@@ -75,16 +75,6 @@ chmod +x filter_jasmine.sh
 ./filter_jasmine.sh
 ```
 
-### Post-Cleanup Variant Counts:
-The distribution of merged variants was verified using `bcftools`:
-
-| Count | SVTYPE |
-| :--- | :--- |
-| 501,425 | DEL |
-| 17,233 | DUP |
-| 84,452 | INS |
-| 2,938 | INV |
-
 ## 6. Compression and Indexing
 
 The final VCF was sorted, compressed, and indexed for downstream analysis.
