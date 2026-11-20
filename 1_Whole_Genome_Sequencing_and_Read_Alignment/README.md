@@ -1,7 +1,5 @@
 # 1. Whole Genome Sequencing and Read Alignment
 
-This directory contains the initial stages of the bioinformatic pipeline for identifying structural variants (SVs) associated with Infectious Pancreatic Necrosis Virus (IPNV) resistance in rainbow trout (*Oncorhynchus mykiss*). 
-
 The analysis starts with raw sequencing data from 28 individuals (14 resistant and 14 susceptible) selected from an IPNV challenge trial. The workflow ensures high-quality data through rigorous control and accurate alignment to the reference genome.
 
 ## Directory Structure
