@@ -1,6 +1,7 @@
 # Coverage Visualization with DeepTools
 
-This directory contains the pipeline for converting BAM files to bedGraph and bigWig formats to visualize genome coverage. The analysis is performed on whole-genome sequencing data from rainbow trout (*Oncorhynchus mykiss*) as part of the IPNV challenge test by Effigen S.A
+This directory contains the pipeline for converting BAM files to bedGraph and bigWig formats to visualize genome coverage. 
+
 ---
 
 ## Steps for Coverage Analysis
