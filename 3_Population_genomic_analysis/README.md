@@ -1,7 +1,5 @@
 # Population Genomic Analysis
 
-This directory contains the population genomic analyses of structural variants (SVs) identified in rainbow trout (*Oncorhynchus mykiss*). This stage focuses on evaluating the genetic structure of the population, specifically comparing individuals resistant and susceptible to Infectious Pancreatic Necrosis Virus (IPNV).
-
 The primary objective of this module is to conduct Principal Component Analysis (PCA) to visualize genetic clustering and differentiate between variant types (Deletions and Insertions).
 
 ## Directory Structure
