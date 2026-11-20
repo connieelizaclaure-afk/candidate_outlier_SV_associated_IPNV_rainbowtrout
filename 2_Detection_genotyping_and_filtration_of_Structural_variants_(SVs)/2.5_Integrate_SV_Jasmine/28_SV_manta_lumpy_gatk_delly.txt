@@ -1,0 +1,4 @@
+diploid_merged_28samples_PASS_precise_NC_SIZE_BI.vcf 
+28_lumpy_SV_merged_SVTYPE_PRECISE_NC_SIZE_BI.vcf
+28_gatk_raw_filter_INDEL_PASS_SVTYPE_NC_SIZE_BI.vcf
+28_delly_SV_merged_PASS_precise_NC_SIZE_BI.vcf
