@@ -125,7 +125,7 @@ $GATK --java-options "-Xmx7g" SelectVariants \
 python contar_variantes.py
 ```
 
-## 8. Refined Filtration Pipeline
+## 8. Filtration Pipeline
 
 A specific pipeline is executed to isolate high-quality structural variants.
 
