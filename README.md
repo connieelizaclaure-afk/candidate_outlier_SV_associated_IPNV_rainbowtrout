@@ -6,6 +6,8 @@ This repository contains genomic analyses aimed at identifying and characterizin
 
 Preprint available here:
 
+Raw data available here:
+
 Reference genome used in the study: [ICSASG_v2](https://salmobase.org/genomes/RainbowTrout/USDA_OmykA_1.1/overview)
 
 This repository contains all codes for the methods described in the preprint described above.
