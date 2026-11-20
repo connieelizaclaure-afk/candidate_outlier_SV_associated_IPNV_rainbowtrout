@@ -1,6 +1,6 @@
 # SV Identification Using Delly
 
-This directory contains the pipeline for identifying structural variants (SVs) in *Oncorhynchus mykiss* using Delly. The workflow covers installation, variant calling, file conversion, and a rigorous multi-step filtration process to ensure high-quality SV calls.
+This directory contains the pipeline for identifying structural variants (SVs) in *Oncorhynchus mykiss* using Delly. The workflow covers installation, variant calling, file conversion, and a multi-step filtration process to ensure high-quality SV calls.
 
 ## 1. Installation
 
